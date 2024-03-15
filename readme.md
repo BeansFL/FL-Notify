@@ -48,3 +48,5 @@ If you're integrating `FL-Notify` into custom scripts or mods, you'll primarily 
 `FL-Notify` offers a robust solution for displaying notifications within the FiveM environment, providing server owners and developers with the tools needed to enhance player communication and engagement. By following the guidelines outlined in this document, you can seamlessly integrate `FL-Notify` into your FiveM server or custom scripts.
 
 For further customization options or support, please refer to the official `FL-Notify` documentation or contact support.
+
+![xs_Notify - @Cozy](https://github.com/BeansFL/FL-Notify/assets/106496863/b9f8cb20-f42d-4428-a0dd-9a8740f859e8)
