@@ -1,0 +1,131 @@
+
+$size: 0.09259259259259259vh;
+
+@function vw($target) {
+  @return $size * $target;
+}
+
+@import url('https://fonts.cdnfonts.com/css/akrobat');
+
+@import "components/index";
+@import "interfaces/index";
+
+body {
+  font-family: 'Akrobat', sans-serif;
+  font-weight: 500;
+  font-size: vw(12);
+  line-height: vw(14);
+
+  color: #fff;
+
+  height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+
+  background-color: transparent;
+
+  overflow: hidden;
+
+  h1 {
+    line-height: 120%;
+  }
+}
+
+image {
+  pointer-events: none;
+}
+
+*::-webkit-scrollbar {
+  width: vw(5);scrollbar-gutter: stable;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+ul[class], ol[class] {
+  padding: 0;
+  list-style: none;
+}
+
+body, h1, h2, h3, h4, p,
+ul[class], ol[class], li, figure,
+figcaption, blockquote, dl, dd {
+  margin: 0;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+input::placeholder {
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+input[type=range] {
+  width: 100%;
+  height: vw(5);
+
+  padding: 0;
+  margin: 0;
+
+  position: relative;
+
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: vw(5);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  width: vw(7);
+  height: vw(16);
+
+  margin-top: vw(-5);
+
+  border-radius: vw(9);
+  background: #FFF;
+  -webkit-appearance: none;
+}
