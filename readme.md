@@ -27,6 +27,7 @@ Example Usage:
 ```lua
 exports['FL-Notify']:Notify("Notification Title", "Subtitle", "Content message", 5000, "type", "position")
 ```
+Positions cannot be strings. Use 0-5 for types and 0-5 for positions
 
 ### Notification Parameters
 
