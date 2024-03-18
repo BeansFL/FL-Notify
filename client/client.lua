@@ -19,7 +19,7 @@ AddEventHandler("fl:notify", function(title, subTitle, content, timeout, type, p
     Notify(title, subTitle, content, timeout, type, position)
 end)
 
-RegisterCommand("notifyall", function(source, args, rawCommand)
+RegisterCommand("notifytest", function(source, args, rawCommand)
 	TriggerServerEvent("fl:notify", "Type 1", "Position 0", "This is a test notify!", 5000, 1, 0)
 	Wait(1)
 	TriggerServerEvent("fl:notify", "Type 2", "Position 1", "This is a test notify!", 5000, 2, 1)
@@ -35,7 +35,7 @@ RegisterCommand("notifyall", function(source, args, rawCommand)
 	TriggerServerEvent("fl:notify", "Type 7", "Position 2", "This is a test notify!", 5000, 7, 2)
 end)
 
-RegisterCommand("notifytest", function()
+RegisterCommand("notifyall", function()
     TriggerServerEvent("fl:notify", "It works!", "This notify works!", "A client wants everyone to see this!", 5000, 1, 0)
 end)
 
