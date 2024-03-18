@@ -40,6 +40,28 @@ When triggering notifications, you'll need to provide several parameters to cust
 - **Type**: The notification type (e.g., success, error) that may affect its appearance.
 - **Position**: Where on the screen the notification will appear (e.g., top-right, bottom-left).
 
+### Notification Themes
+
+| Type | Theme   |
+|------|---------|
+| 1    | Error   |
+| 2    | Success |
+| 3    | Info    |
+| 4    | Person  |
+| 5    | Police  |
+| 6    | Money   |
+| 7    | Info    |
+| 8    | Custom  |
+
+### Notification Positions
+
+| Type | Position   |
+|------|------------|
+| 0    | Top        |
+| 1    | Bottom     |
+| 2    | Left       |
+| 3    | Right      |
+
 ### For Developers
 
 If you're integrating `FL-Notify` into custom scripts or mods, you'll primarily interact with the `fl:notify` server event and the `Notify` client export as described above.
