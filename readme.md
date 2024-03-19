@@ -66,6 +66,30 @@ When triggering notifications, you'll need to provide several parameters to cust
 
 If you're integrating `FL-Notify` into custom scripts or mods, you'll primarily interact with the `fl:notify` server event and the `Notify` client export as described above.
 
+
+### Replacement for qbcore
+```function QBCore.Functions.Notify(text, texttype, length)
+    length = length or 5000
+    texttype = texttype or 'info'
+    
+    local convert = {
+        ["primary"] = 3, 
+        ["police"] = 5, 
+        ["ambulance"] = 4, 
+        ["error"] = 1, 
+        ["success"] = 2,
+        ["money"] = 6,
+        ["custom"] = 8 
+    }
+    
+    local themeId = convert[texttype] or 3
+
+    local textposition = 0 -- follow readme to know positions
+
+    exports['FL-Notify']:Notify("Notification", "", text, length, themeId, textposition)
+end ```
+
+
 ## Conclusion
 
 `FL-Notify` offers a robust solution for displaying notifications within the FiveM environment, providing server owners and developers with the tools needed to enhance player communication and engagement. By following the guidelines outlined in this document, you can seamlessly integrate `FL-Notify` into your FiveM server or custom scripts.
