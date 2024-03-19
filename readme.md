@@ -68,7 +68,9 @@ If you're integrating `FL-Notify` into custom scripts or mods, you'll primarily 
 
 
 ### Replacement for qbcore
-```function QBCore.Functions.Notify(text, texttype, length)
+
+````
+function QBCore.Functions.Notify(text, texttype, length)
     length = length or 5000
     texttype = texttype or 'info'
     
@@ -87,8 +89,8 @@ If you're integrating `FL-Notify` into custom scripts or mods, you'll primarily 
     local textposition = 0 -- follow readme to know positions
 
     exports['FL-Notify']:Notify("Notification", "", text, length, themeId, textposition)
-end ```
-
+end
+````
 
 ## Conclusion
 
