@@ -7,7 +7,8 @@ function Notify(title, subTitle, content, timeout, type, position)
             content = content,
             timeout = timeout,
             type = type,
-            position = position
+            position = position,
+            stack = Config.AllowStacking
         }
     })
 end
