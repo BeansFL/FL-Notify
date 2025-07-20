@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
 import Layout from "../components/Layout/Layout";
+import Form from '../components/Test/Form';
 import NotifiesList, { NotifyPositions } from "../components/Notifies/NotifiesList";
 
 import {
@@ -57,6 +58,8 @@ const Notifies = () => {
 
     return (
         <Layout containerName={"notifies"}>
+            {/* IMPORTANT: IF YOU WANT TO REBUILD FRONTEND CODE, REMOVE BELOW COMPONENT */}
+            <Form createNotification={createNotification}/>
             <NotifiesList/>
         </Layout>
     );
