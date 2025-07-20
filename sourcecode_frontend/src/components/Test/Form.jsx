@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Form = ({createNotification}) => {
+const Form = ({ createNotification }) => {
 	const [id, setId] = useState(0);
 	const [title, setTitle] = useState('Lorem ipsum');
 	const [subTitle, setSubTitle] = useState('');
@@ -8,6 +8,7 @@ const Form = ({createNotification}) => {
 	const [timeout, setTimeout] = useState(15);
 	const [type, setType] = useState(1);
 	const [position, setPosition] = useState(0);
+	const [stack, setStack] = useState(0);
 
 	return (
 		<div
@@ -166,29 +167,60 @@ const Form = ({createNotification}) => {
 				</div>
 			</div>
 
-			<div style={{ width: '100%', marginBottom: '5px' }}>
-				<label
-					style={{ display: 'block', marginBottom: '2.5px', fontSize: '8px' }}
+			<div style={{ width: '100%', display: 'flex', marginBottom: '5px' }}>
+				<div
+					style={{ width: '75%', marginBottom: '5px', paddingRight: '2.5px' }}
 				>
-					Position
-				</label>
-				<select
-					value={position}
-					onChange={(e) => setPosition(Number(e.target.value))}
-					style={{
-						width: '100%',
-						padding: '2px',
-						borderRadius: '2px',
-						border: '1px solid #ccc',
-						fontSize: '8px',
-						color: 'whitesmoke'
-					}}
-				>
-					<option value={0}>0</option>
-					<option value={1}>1</option>
-					<option value={2}>2</option>
-					<option value={3}>3</option>
-				</select>
+					<label
+						style={{ display: 'block', marginBottom: '2.5px', fontSize: '8px' }}
+					>
+						Position
+					</label>
+					<select
+						value={position}
+						onChange={(e) => setPosition(Number(e.target.value))}
+						style={{
+							width: '100%',
+							padding: '2px',
+							borderRadius: '2px',
+							border: '1px solid #ccc',
+							fontSize: '8px',
+							color: 'whitesmoke'
+						}}
+					>
+						<option value={0}>0</option>
+						<option value={1}>1</option>
+						<option value={2}>2</option>
+						<option value={3}>3</option>
+					</select>
+				</div>
+
+				<div style={{ width: '25%', paddingLeft: '2.5px' }}>
+					<label
+						style={{
+							display: 'block',
+							marginBottom: '2.5px',
+							fontSize: '8px'
+						}}
+					>
+						Stack
+					</label>
+					<select
+						value={stack}
+						onChange={(e) => setStack(Number(e.target.value))}
+						style={{
+							width: '100%',
+							padding: '2px',
+							borderRadius: '2px',
+							border: '1px solid #ccc',
+							fontSize: '8px',
+							color: 'whitesmoke'
+						}}
+					>
+						<option value={1}>Yes</option>
+						<option value={0}>No</option>
+					</select>
+				</div>
 			</div>
 
 			<button
@@ -199,7 +231,8 @@ const Form = ({createNotification}) => {
 						content,
 						timeout * 1000,
 						type,
-						position
+						position,
+						stack === 0 ? false : true
 					);
 					setId(id + 1);
 				}}

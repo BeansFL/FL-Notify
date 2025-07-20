@@ -20,6 +20,7 @@ const Notifies = () => {
     );
 
     const addNotification = useCallback((notify) => {
+        let stack;
         const newNotifies = [ ...notifies, { ...notify, time: notify.timeout } ];
 
         const notifiesByPosition = {
@@ -32,6 +33,7 @@ const Notifies = () => {
         newNotifies.forEach(notification => {
             notifiesByPosition[notification.position].unshift(notification);
             notifiesByPosition[notification.position].sort((a, b) => b.id - a.id);
+            stack = notification.stack;
         });
 
         const limitedNotifies = Object.keys(notifiesByPosition).reduce((acc, position) => {
@@ -39,21 +41,21 @@ const Notifies = () => {
             return acc;
         }, []);
 
-        dispatch(loadNotifies(limitedNotifies));
+        dispatch(loadNotifies(stack ? newNotifies : limitedNotifies));
     }, [notifies, dispatch]);
 
-    const createNotification = useCallback(( title, subTitle, content, timeout, type, position ) => {
+    const createNotification = useCallback(( title, subTitle, content, timeout, type, position, stack ) => {
         const id = Date.now().toString();
-        addNotification({ id, title, subTitle, content, timeout, type, position });
+        addNotification({ id, title, subTitle, content, timeout, type, position, stack });
     }, [addNotification]);
 
     useNuiEvent("createNotify", useCallback(( data ) => {
         const {
             title = "No title", subTitle = "No title",  content = "Empty",
-            timeout = 5000, type = 0, position = 0,
+            timeout = 5000, type = 0, position = 0, stack = false,
         } = data;
 
-        createNotification(title, subTitle, content, timeout, type, position);
+        createNotification(title, subTitle, content, timeout, type, position, stack);
     }, [ createNotification ]));
 
     return (
